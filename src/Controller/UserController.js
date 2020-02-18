@@ -1,8 +1,8 @@
-import * as request from 'request-promise';
+const request = require( 'request-promise');
 let cheerio = require('cheerio');
-let common = require('./../commons/string');
+let common = require('../commons/string');
 class UserController {
-    public static async login(username,password){
+     static async login(username,password){
         return new Promise(async(reslove,jeject)=>{
             try {
                 let options={
@@ -20,6 +20,7 @@ class UserController {
                 let result = await request(options);
                 return jeject(new Error('Tên Đăng Nhập Sai Hoặc Mật Khẩu Chưa Chính Xác'));
             } catch (error) {
+                console.log(error);
                 let result = error.response.headers['set-cookie'].join(";");
                 let obj = common.parseCookie(result);
                 let userinfo = await this.getInfoUser(obj);
@@ -28,7 +29,7 @@ class UserController {
         })
         
     }
-    public static async getInfoUser(cookie){
+     static async getInfoUser(cookie){
         let optionlogin = {
             method:"get",
             uri:"https://chimbuom.us/users/profile.php",

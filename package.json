@@ -1,12 +1,16 @@
 {
   "name": "phong",
-  "version": "phong",
+  "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": " ts-node index.ts"
+    "start": " babel-node index.js"
   },
   "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/plugin-transform-typescript": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-typescript": "^7.8.3",
     "@types/node": "^13.7.1",
     "body-parser": "^1.19.0",
     "cheerio": "^1.0.0-rc.3",
@@ -32,5 +36,9 @@
   "engines": {
     "node": "^12.14.1",
     "yarn": "^1.21.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4"
   }
 }

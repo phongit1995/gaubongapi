@@ -1,7 +1,7 @@
-import * as express from 'express';
+const  express = require( 'express');
 import * as dotenv from 'dotenv';
-import * as logger from 'morgan';
-import * as bodyParser from 'body-parser';
+const logger = require( 'morgan');
+const bodyParser = require( 'body-parser');
 import router from './src/router/index';
 dotenv.config();
 let app = express();
