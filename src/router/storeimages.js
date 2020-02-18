@@ -3,8 +3,9 @@ require('dotenv').config();
 const jwt =  require('jsonwebtoken');
 let router = express.Router();
 let StoreImageController = require('./../Controller/StoreImageController');
-router.get('/',async(req,res)=>{
+router.post('/',async(req,res)=>{
     let JWT= req.headers.authorization|| req.headers.Authorization ;
+    console.log(req.body.page);
     if(!JWT){
         return res.json({
             error:'NOT_AUTHEN'
@@ -17,8 +18,8 @@ router.get('/',async(req,res)=>{
         })
     }
     let {cookie} = payload;
-    let result = await StoreImageController.getInFoImages(cookie,1);
-    console.log(result);
+    let result = await StoreImageController.getInFoImages(cookie,req.body.page);
+    // console.log(result);
     if(result.length>0){
         return res.json({
             error:null,

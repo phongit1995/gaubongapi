@@ -20,11 +20,11 @@ let getInFoImages =async(cookie,page)=>{
         }  
     }
     let result = await request(options);
-    console.log(result);
+    // console.log(result);
     let $ = cheerio.load(result);
     
     let listContainerImage = $('.left');
-    console.log(listContainerImage.length);
+    // console.log(listContainerImage.length);
     let resultList = [];
     listContainerImage.each(function(index,element){
         if($(this).attr('id')){
