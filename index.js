@@ -1,9 +1,8 @@
 const  express = require( 'express');
-import * as dotenv from 'dotenv';
+require('dotenv').config();
 const logger = require( 'morgan');
 const bodyParser = require( 'body-parser');
-import router from './src/router/index';
-dotenv.config();
+const router  = require( './src/router/index');
 let app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());

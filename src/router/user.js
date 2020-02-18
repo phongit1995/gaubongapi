@@ -1,7 +1,7 @@
-import * as express from 'express';
-import UserControler from './../Controller/UserController';
+const  express = require( 'express');
+const UserControler  =  require('../Controller/UserController');
 require('dotenv').config();
-import * as jwt from 'jsonwebtoken';
+const jwt =  require('jsonwebtoken');
 let router = express.Router();
 router.post('/login',async(req,res)=>{
     console.log(req.body);
@@ -24,4 +24,4 @@ router.post('/login',async(req,res)=>{
 router.get('/',(req,res)=>{
     res.send('user');
 })
-export default router ;
+module.exports=  router ;
