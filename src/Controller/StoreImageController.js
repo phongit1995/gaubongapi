@@ -30,8 +30,8 @@ let getInFoImages =async(cookie,page)=>{
         if($(this).attr('id')){
             let InfoItem = {};
            let ImageItem = cheerio.load(element);
-           let  userimage= ImageItem(' table > tbody > tr > td:nth-child(1) > img').attr('src');
-           let nameUser = ImageItem(' table > tbody > tr > td:nth-child(2) > b > a > span > font').text();
+           let  userimage= ImageItem(' table > tbody > tr > td:nth-child(1) > img').attr('src'); 
+           let nameUser = ImageItem(' table > tbody > tr > td:nth-child(2) > b > a > span > font').text() || ImageItem(' table > tbody > tr > td:nth-child(2) > b > a > span > span > font').text() || ImageItem('table > tbody > tr > td:nth-child(2) > b > a > font').text() ;
            let imageLink = ImageItem(' center > a:nth-child(2) > img').attr('src');
            let title= ImageItem('center').text().trim();
            title = title.substr(0, title.lastIndexOf(' '));
