@@ -1,6 +1,7 @@
 const request = require( 'request-promise');
 let cheerio = require('cheerio');
 let common = require('../commons/string');
+const URL_WEBSITE='https://chimbuom.us';
 let getInFoImages =async(cookie,page)=>{
     if(!page){
         page=1
@@ -35,9 +36,9 @@ let getInFoImages =async(cookie,page)=>{
            let imageLink = ImageItem(' center > a:nth-child(2) > img').attr('src');
            let title= ImageItem('center').text().trim();
            title = title.substr(0, title.lastIndexOf(' '));
-           InfoItem.userimage=userimage;
+           InfoItem.userimage=URL_WEBSITE+ userimage;
            InfoItem.nameUser= nameUser ;
-           InfoItem.imageLink=imageLink;
+           InfoItem.imageLink= URL_WEBSITE +imageLink;
            InfoItem.title=title;
            resultList.push(InfoItem);
         }

@@ -1,7 +1,7 @@
 const request = require( 'request-promise');
 let cheerio = require('cheerio');
 let common = require('../commons/string');
-
+const URL_WEBSITE='https://chimbuom.us';
 let  login= async (username,password)=>{
         return new Promise(async(reslove,jeject)=>{
             try {
@@ -55,7 +55,7 @@ let getInfoUser= async (cookie)=>{
         let Idweb = $("body > div:nth-child(4) > div > span:nth-child(2) > font").text();
         obj['Idweb'] = Idweb ;
         let image = $('#container > div.menu > table > tbody > tr > td:nth-child(1) > img').attr('src') ;
-        obj['image'] = image ;
+        obj['image'] = URL_WEBSITE+image ;
         // console.log(obj);
         return obj ;
     }
